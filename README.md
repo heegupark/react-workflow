@@ -36,6 +36,6 @@ make sure to add the main.js script and link your css
 ## Optional:
 * add font-awesome
 ```html
-> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 ```
 
