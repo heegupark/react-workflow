@@ -34,20 +34,20 @@ make sure to add the main.js script and link your css
 ```
 ### 7. Configure webpack
 add the following to webpack.config.js
-```json
-    module.exports = {
-      "resolve": {
-        "extensions": [".js", ".jsx"]
+```
+     module.exports = {
+      resolve: {
+        extensions: ['.js', '.jsx']
       },
-      "module": {
-        "rules": [
+      module: {
+        rules: [
           {
-            "test": "/\.jsx?$/",
-            "use": {
-              "loader": "babel-loader",
-              "options": {
-                "plugins": [
-                  "@babel/plugin-transform-react-jsx"
+            test: /\.jsx?$/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                plugins: [
+                  '@babel/plugin-transform-react-jsx'
                 ]
               }
             }
@@ -74,7 +74,7 @@ add the following to webpack.config.js
 ```
 * add additional functionality if you chose to use the watch/dev shell script (adding sourcemap tool/server tool, respectively)
 Replace the content of the webpack.config.js file
-```json
+```
 const path = require('path');
 
 const srcPath = path.resolve(__dirname, 'src');
