@@ -36,18 +36,18 @@ make sure to add the main.js script and link your css
 add the following to webpack.config.js
 ```json
     module.exports = {
-      resolve: {
-        extensions: ['.js', '.jsx']
+      "resolve": {
+        "extensions": [".js", ".jsx"]
       },
-      module: {
-        rules: [
+      "module": {
+        "rules": [
           {
-            test: /\.jsx?$/,
-            use: {
-              loader: 'babel-loader',
+            "test": /\.jsx?$/,
+            "use": {
+              "loader": "babel-loader",
               options: {
                 plugins: [
-                  '@babel/plugin-transform-react-jsx'
+                  "@babel/plugin-transform-react-jsx"
                 ]
               }
             }
