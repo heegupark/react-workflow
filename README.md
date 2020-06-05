@@ -42,11 +42,11 @@ add the following to webpack.config.js
       "module": {
         "rules": [
           {
-            "test": /\.jsx?$/,
+            "test": "/\.jsx?$/",
             "use": {
               "loader": "babel-loader",
-              options: {
-                plugins: [
+              "options": {
+                "plugins": [
                   "@babel/plugin-transform-react-jsx"
                 ]
               }
