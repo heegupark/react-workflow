@@ -75,38 +75,38 @@ add the following to webpack.config.js
 * add additional functionality if you chose to use the watch/dev shell script (adding sourcemap tool/server tool, respectively)
 Replace the content of the webpack.config.js file
 ```
-const path = require('path');
+    const path = require('path');
 
-const srcPath = path.resolve(__dirname, 'src');
-const publicPath = path.resolve(__dirname, 'dist');
+    const srcPath = path.resolve(__dirname, 'src');
+    const publicPath = path.resolve(__dirname, 'dist');
 
-module.exports = {
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        include: srcPath,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            plugins: [
-              '@babel/plugin-transform-react-jsx'
-            ]
+    module.exports = {
+      resolve: {
+        extensions: ['.js', '.jsx']
+      },
+      module: {
+        rules: [
+          {
+            test: /\.jsx?$/,
+            include: srcPath,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                plugins: [
+                  '@babel/plugin-transform-react-jsx'
+                ]
+              }
+            }
           }
-        }
+        ]
+      },
+      devtool: 'source-map',
+      devServer: {
+        host: '0.0.0.0',
+        port: 3000,
+        contentBase: publicPath,
+        watchContentBase: true,
+        stats: 'minimal'
       }
-    ]
-  },
-  devtool: 'source-map',
-  devServer: {
-    host: '0.0.0.0',
-    port: 3000,
-    contentBase: publicPath,
-    watchContentBase: true,
-    stats: 'minimal'
-  }
-};
+    };
 ```
