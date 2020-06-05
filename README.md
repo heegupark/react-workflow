@@ -68,7 +68,7 @@ add the following to webpack.config.js
 ```
 
 ## Optional:
-* Run the following shell script to do the **Required** 1-5 steps:
+* Run the following shell script to do the **Required** steps 1-5:
 ```
     npm init -y && npm i -D webpack webpack-cli babel-loader @babel/core @babel/plugin-transform-react-jsx && npm i react react-dom &&  mkdir src dist && touch src/index.jsx dist/index.html dist/style.css webpack.config.js
 ```
