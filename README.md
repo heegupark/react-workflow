@@ -32,9 +32,30 @@ make sure to add the main.js script and link your css
 
     </html>
 ```
-### 5. Create the minimum nessacery files for production and distribution
-touch src/index.jsx dist/index.html dist/style.css webpack.config.js
-### 6. Make a basic HTML skeleton
+### 7. Configure webpack
+add the following to webpack.config.js
+```json
+    module.exports = {
+      resolve: {
+        extensions: ['.js', '.jsx']
+      },
+      module: {
+        rules: [
+          {
+            test: /\.jsx?$/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                plugins: [
+                  '@babel/plugin-transform-react-jsx'
+                ]
+              }
+            }
+          }
+        ]
+      }
+    };
+```
 
 ## Optional:
 * add bootstrap
@@ -45,10 +66,47 @@ touch src/index.jsx dist/index.html dist/style.css webpack.config.js
 ```html
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 ```
-* add build/watch/dev to your json.package
+* add build/watch/dev shell scripts to your json.package under the scripts
 ```json
     "dev": "webpack-dev-server",
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development --watch"
 ```
+* add additional functionality if you chose to use the watch/dev shell script (adding sourcemap tool/server tool, respectively)
+Replace the content of the webpack.config.js file
+```json
+const path = require('path');
 
+const srcPath = path.resolve(__dirname, 'src');
+const publicPath = path.resolve(__dirname, 'dist');
+
+module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        include: srcPath,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              '@babel/plugin-transform-react-jsx'
+            ]
+          }
+        }
+      }
+    ]
+  },
+  devtool: 'source-map',
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+    contentBase: publicPath,
+    watchContentBase: true,
+    stats: 'minimal'
+  }
+};
+```
