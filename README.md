@@ -25,8 +25,8 @@ The basic workflow to start a react project
 ### 6. Make a basic HTML skeleton
 make sure to add the main.js script and link your css
 ```html
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
       <meta charset="UTF-8">
