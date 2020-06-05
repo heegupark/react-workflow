@@ -32,10 +32,23 @@ make sure to add the main.js script and link your css
 
     </html>
 ```
+### 5. Create the minimum nessacery files for production and distribution
+touch src/index.jsx dist/index.html dist/style.css webpack.config.js
+### 6. Make a basic HTML skeleton
 
 ## Optional:
+* add bootstrap
+```html
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css"/>
+```
 * add font-awesome
 ```html
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+```
+* add build/watch/dev to your json.package
+```json
+    "dev": "webpack-dev-server",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch"
 ```
 
